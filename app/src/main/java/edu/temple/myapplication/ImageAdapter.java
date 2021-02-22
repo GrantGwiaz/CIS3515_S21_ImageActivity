@@ -11,21 +11,25 @@ import java.util.ArrayList;
 public class ImageAdapter extends BaseAdapter {
 
     Context context;
-    ArrayList<String> items;
+    String[] items;
+    String[] descriptions;
+    int[] imageResources;
 
-    public ImageAdapter (Context context, ArrayList items) {
+    public ImageAdapter (Context context, String[] items, String[] descriptions, int[] imageResources) {
         this.context = context;
         this.items = items;
+        this.descriptions = descriptions;
+        this.imageResources = imageResources;
     }
 
     @Override
     public int getCount() {
-        return items.size();
+        return items.length;
     }
 
     @Override
     public Object getItem(int position) {
-        return items.get(position);
+        return items[position];
     }
 
     @Override
@@ -36,8 +40,7 @@ public class ImageAdapter extends BaseAdapter {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         TextView textView = new TextView(context);
-        textView.setText(items.get(position));
-
+        textView.setText(items[position]);
         return textView;
     }
 }
