@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.Spinner;
@@ -29,10 +30,10 @@ public class ImageActivity extends AppCompatActivity {
 
         //declare and populate arrays for each for our items, their descriptions, and images of them to be displayed
         soupArray = new String[]{"Please select a Soup","Gazpacho", "French Onion Soup", "Chowder", "Tomato Soup"};
-        descriptionArray = new String[]{"","a cold soup of raw blended vegetables", "a rich soup typically containing fish",
-                                    "beef stock and onion base, covered with cheese and bread", "pretty much just tomatoes"};
+        descriptionArray = new String[]{ "" ," - a cold soup of raw blended vegetables", " - beef stock and onion base, covered with cheese and bread",
+                                         " - a rich soup typically containing fish", " - pretty much just tomatoes"};
         soupImagesArray = new int[]{R.drawable.gazpacho , R.drawable.french_onion , R.drawable.chowder , R.drawable.tomato};
-        // all this is better as an object class as to encapsulate, but since won't be using or maintaining this its unnecessary
+        // all this is better as an object class as to encapsulate, but since won't be reusing or maintaining this its unnecessary
 
 
         ImageAdapter adapter = new ImageAdapter(this, soupArray, descriptionArray, soupImagesArray);
@@ -49,6 +50,7 @@ public class ImageActivity extends AppCompatActivity {
             public void onNothingSelected(AdapterView<?> parent) {
                 Toast.makeText(ImageActivity.this, "Item Unselected", Toast.LENGTH_SHORT).show();
             }
+
         });
     }
 
