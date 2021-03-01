@@ -3,6 +3,7 @@ package edu.temple.myapplication;
 import android.content.Context;
 import android.media.Image;
 import android.util.Pair;
+import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
@@ -59,11 +60,14 @@ public class ImageAdapter extends BaseAdapter {
             soupName.setTextSize(20);
             soupName.setPadding(30, 30,15,0);
             soupDescription.setPadding(15, 30,15,30);
+            linearLayout.setGravity(Gravity.CENTER_HORIZONTAL);
 
         } else {
             linearLayout = (LinearLayout) convertView;
             soupName = (TextView) linearLayout.getChildAt(0);
             soupDescription = (TextView) linearLayout.getChildAt(1);
+            linearLayout.setGravity(Gravity.CENTER_HORIZONTAL);
+
         }
         soupName.setText(items[position]);
         soupDescription.setText(descriptions[position]);
@@ -91,6 +95,7 @@ public class ImageAdapter extends BaseAdapter {
             soupName.setTextSize(15);
             soupName.setPadding(15, 30,15,0);
             soupDescription.setPadding(15, 30,15,30);
+
 
             imageView.getLayoutParams().height = 150;
             imageView.getLayoutParams().width = 150;
